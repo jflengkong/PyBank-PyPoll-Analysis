@@ -16,19 +16,19 @@ with open(csvpath) as election_data_file:
     csvreader = csv.reader(election_data_file,delimiter=',')
     print(csvreader)
 
-    #Skip first row and save under csv_header variable 
+    #Skip first row and store under csv_header variable 
     csv_header = next(csvreader)
         
-    #Start loop to search through file 
+    #Start loop to search through csv file
     for row in csvreader: 
-        #Add all vote IDs into the votes list and count how many votes there are  
+        #Add all vote IDs into the votes list and count vote number 
         votes_IDS.append(row[0])
         total_votes = len(votes_IDS)      
 
-        #Run through each row of candidate 
+        #Store candidate variable as candidate name 
         candidate = row[2]
         
-        #Search if candidate is in the list of election candidate, if yes 
+        #Search if candidate is in the list of election candidate, if yes add to candidate vote count, ifnot add candidate and add new vote count 
         if candidate in election_candidates:
             candidate_index = election_candidates.index(candidate)
             number_of_votes[candidate_index] += 1
@@ -37,17 +37,17 @@ with open(csvpath) as election_data_file:
             election_candidates.append(candidate)
             number_of_votes.append(1)
 
-#Loop through the election candidates and fine their total votes and percentage votes  
+#Loop through the election candidates and find their total percentage votes  
 for count in range(len(election_candidates)):
     vote_percentage = number_of_votes[count] / total_votes * 100
-    #aAdd to candidate percentage list 
+    #Add to candidate percentage list 
     candidate_percentage.append(vote_percentage)
     
-#Format percentage final into 2 decimal points 
+#Format percentage final to 2 decimal points 
 percentage_final = ['%.3f' % elem for elem in candidate_percentage]
 print(percentage_final)
 
-#Find the winner by finding the candidate with the maximum number of votes compared to their indices in the lists 
+#Find the winner by finding the candidate with the maximum number of votes 
 max_votes = max(number_of_votes)
 max_candidate_index = number_of_votes.index(max_votes)
 winner = election_candidates[max_candidate_index]
@@ -63,7 +63,6 @@ print(f"Winner: {winner}")
 print("-----------------------------------------")
 
 #Export file into a .txt file in Analysis folder 
-
 output_path = os.path.join('Analysis','output_pypoll.txt')\
     
 with open(output_path,'a') as txtfile: 
