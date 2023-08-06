@@ -21,7 +21,8 @@ The analysis completed below was printed to the terminal and exported into a tex
 
 #Challenge 2: PyPoll Challenge 
 In this Challenge, we were tasked with helping a small, rural U.S. town modernise its vote-counting process.
-A set of poll dataset called "election_data.csv" was provided. The dataset composed of three columns: "Voter ID", "County", and "Candidate". 
+A set of poll dataset called "election_data.csv" was provided. The dataset composed of three columns: "Voter ID", "County", and "Candidate".
+
 ![Image of PyPoll Dataset](https://github.com/jflengkong/python-challenge/blob/main/Screenshots/Election%20Data.png)
 
 The task was to create a Python script that analysed the votes and calculated each of the following values:
