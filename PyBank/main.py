@@ -6,9 +6,11 @@ csvpath = os.path.join('..', 'Resources','budget_data.csv')
 months = []
 profit_and_loss =[]
 total_profit_loss = 0
-greatest_increase_profits = 0 
-greatest_decrease_profits = 0 
 
+greatest_increase  = 0 
+greatest_decrease = 0
+previous_value = 0
+current_value = 0 
 
 #Open CSV file and call it budget_data_files
 with open(csvpath) as budget_data_file: 
@@ -27,18 +29,21 @@ with open(csvpath) as budget_data_file:
         profit_and_loss.append(int(row[1]))
         total_profit_loss += int(row[1])
         
-        #Calculate the different in profit/loss for each row and check for the greatest increase 
-        if len(profit_and_loss) > 1:
-            difference = profit_and_loss[-1] - profit_and_loss[-2]
-            
-            #Check value of different is greater than last difference 
-            if difference > greatest_increase_profits:
-                greatest_increase_profits = difference
-                greatest_increase_month = months[-1]
-
-            if difference < greatest_decrease_profits:
-                greatest_decrease_profits = difference 
-                greatest_decrease_month = months[-1]
+        #at row 2, store value from first row as previous_value if you cannot 
+        current_value = row[1]
+    
+        #deterimne change by using current_value minus previous_value 
+        change = int(current_value) - int(previous_value)
+                
+        if change > greatest_increase: 
+            greatest_increase = change 
+            greatest_increase_month = str(row[0])
+    
+        if change < greatest_decrease: 
+            greatest_decrease = change 
+            greatest_decrease_month = str(row[0])
+    
+        previous_value = row[1] 
 
         #Calculate total number of months in dataset and print this data. 
     total_months= len(months)
@@ -57,8 +62,8 @@ with open(csvpath) as budget_data_file:
     print(f"Average Change: ${round(average_change,2)}")
     
     print(f"Total Profit/Loss: {total_profit_loss}")
-    print(f"Greatest Increase in Profits: {greatest_increase_month}: (${greatest_increase_profits})")
-    print(f"Greatest Decrease in Profits: {greatest_decrease_month}: (${greatest_decrease_profits})")
+    print(f"Greatest Increase in Profits: {greatest_increase_month}: (${greatest_increase})")
+    print(f"Greatest Decrease in Profits: {greatest_decrease_month}: (${greatest_decrease})")
     print("-------------------------------------------------------------------")
 
 
@@ -73,6 +78,6 @@ with open(output_path,'a') as txtfile:
     txtfile.write(f"Average Change: ${round(average_change,2)}\n")
     
     txtfile.write(f"Total Profit/Loss: {total_profit_loss}\n")
-    txtfile.write(f"Greatest Increase in Profits: {greatest_increase_month}: (${greatest_increase_profits})\n")
-    txtfile.write(f"Greatest Decrease in Profits: {greatest_decrease_month}: (${greatest_decrease_profits})\n")
+    txtfile.write(f"Greatest Increase in Profits: {greatest_increase_month}: (${greatest_increase})\n")
+    txtfile.write(f"Greatest Decrease in Profits: {greatest_decrease_month}: (${greatest_decrease})\n")
     txtfile.write("-------------------------------------------------------------------")
