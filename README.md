@@ -19,7 +19,7 @@ The challenge was to create a Python script that analysed the records to calcula
 The analysis completed below was printed to the terminal and exported into a text file with the following results: 
 ![Image of PyBank Output](https://github.com/jflengkong/python-challenge/blob/main/Screenshots/Pybank%20Output.png)
 
-#Challenge 2: PyPoll Challenge 
+# Challenge 2: PyPoll Challenge 
 In this Challenge, we were tasked with helping a small, rural U.S. town modernise its vote-counting process.
 A set of poll dataset called "election_data.csv" was provided. The dataset composed of three columns: "Voter ID", "County", and "Candidate".
 
@@ -32,7 +32,7 @@ The task was to create a Python script that analysed the votes and calculated ea
 4. The total number of votes each candidate won
 5. The winner of the election based on popular vote
 
-##Challenge 2 PyPoll Results: 
+## Challenge 2 PyPoll Results: 
 The analysis completed below was printed to the terminal and exported into a text file with the following results:
 
 ![Pypoll Output txt](https://github.com/jflengkong/python-challenge/blob/main/Screenshots/Pypoll%20output.png)
