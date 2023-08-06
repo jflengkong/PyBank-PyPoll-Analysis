@@ -33,7 +33,8 @@ The task was to create a Python script that analysed the votes and calculated ea
 5. The winner of the election based on popular vote
 
 ##Challenge 2 PyPoll Results: 
-The analysis completed below was printed to the terminal and exported into a text file with the following results: 
+The analysis completed below was printed to the terminal and exported into a text file with the following results:
+
 ![Pypoll Output txt](https://github.com/jflengkong/python-challenge/blob/main/Screenshots/Pypoll%20output.png)
 
 
