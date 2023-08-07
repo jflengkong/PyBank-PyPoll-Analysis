@@ -1,7 +1,7 @@
 import os 
 import csv
 
-csvpath = os.path.join('..', 'Resources','budget_data.csv')
+csvpath = os.path.join('Resources','budget_data.csv')
 
 months = []
 profit_and_loss =[]
@@ -67,7 +67,7 @@ with open(csvpath) as budget_data_file:
     print("-------------------------------------------------------------------")
 
 
-output_path = os.path.join("..",'Analysis','output_pybank.txt')
+output_path = os.path.join('Analysis','output_pybank.txt')
 
 with open(output_path,'a') as txtfile:
     
